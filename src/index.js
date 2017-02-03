@@ -20,7 +20,7 @@ const themeFile = path.join(baseDirectory, 'theme.sass')
 const filteredFiles = files.filter(
   file => !ignoreFiles.includes(file)
 )
-console.log(filteredFiles)
+console.log('Files:', filteredFiles)
 console.log('Has index file:', fs.existsSync(indexFile))
 console.log('Has theme file:', fs.existsSync(themeFile))
 
@@ -31,5 +31,4 @@ const allTemplates = fs.readdirSync(templateDirectory)
 const templates = allTemplates.filter(
   template => !['index.hbs'].includes(template)
 )
-
-console.log(templates)
+console.log('Templates:', templates)
