@@ -3,6 +3,7 @@ const path = require('path')
 const process = require('process')
 const handlebars = require('handlebars')
 const winston = require('winston')
+const kramed = require('kramed')
 
 const cwd = process.cwd()
 
@@ -56,7 +57,7 @@ const renderFile = file => {
       const { template, content } = JSON.parse(fileContent)
       return renderJsonFile(template, content)
     case 'md':
-      return ''
+      return kramed(fileContent)
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
