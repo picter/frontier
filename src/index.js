@@ -5,11 +5,11 @@ const process = require('process')
 const cwd = process.cwd()
 
 if (process.argv.length < 3) {
-  return console.log('Please provide an organisation slug as parameter.')
+  return console.log('Please provide an base directory as parameter.')
 }
 
-const organisationSlug = process.argv[2]
-const organisationFolder = path.join(cwd, 'organisations', organisationSlug)
+const directoryParam = process.argv[2]
+const baseDirectory = path.join(cwd, directoryParam)
 
-const files = fs.readdirSync(organisationFolder)
+const files = fs.readdirSync(baseDirectory)
 console.log(files)
