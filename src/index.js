@@ -36,8 +36,12 @@ console.log('Templates:', templates)
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
 
+const renderFile = file => {
+  console.log(file)
+}
+
 files.sort((first, second) =>
   indexOfFile(first) - indexOfFile(second)
 ).forEach(
-  file => console.log(file)
+  file => renderFile(file)
 )
