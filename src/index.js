@@ -46,9 +46,9 @@ const renderFile = file => {
     case 'json':
       const { template, content } = JSON.parse(fileContent)
       console.log(template, content)
-      break;
+      break
     case 'md':
-      break;
+      break
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
