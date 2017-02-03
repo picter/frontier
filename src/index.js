@@ -37,8 +37,7 @@ console.log('Templates:', templates)
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
 
-const renderJsonFile = fileContent => {
-  const { template, content } = JSON.parse(fileContent)
+const renderJsonFile = (template, content) => {
   const templatePath = path.join(cwd, 'templates', template + '.hbs')
   const templateContent = fs.readFileSync(templatePath, 'utf-8')
   const templateHbs = handlebars.compile(templateContent)
@@ -53,7 +52,8 @@ const renderFile = file => {
 
   switch (fileType) {
     case 'json':
-      return renderJsonFile(fileContent)
+      const { template, content } = JSON.parse(fileContent)
+      return renderJsonFile(template, content)
     case 'md':
       return ''
     default:
@@ -67,4 +67,13 @@ const content = files.sort((first, second) =>
   file => renderFile(file)
 ).join('\n')
 
-console.log(content)
+
+const indexFileContent = fs.readFileSync(indexFile, 'utf-8')
+
+const indexContent = Object.assign({}, {
+  content: new handlebars.SafeString(content),
+}, indexFileContent)
+
+const result = renderJsonFile('index', indexContent)
+
+console.log(result)
