@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const process = require('process')
+const handlebars = require('handlebars')
 
 const cwd = process.cwd()
 
@@ -45,7 +46,10 @@ const renderFile = file => {
   switch (fileType) {
     case 'json':
       const { template, content } = JSON.parse(fileContent)
-      console.log(template, content)
+      const templatePath = path.join(cwd, 'templates', template + '.hbs')
+      const templateContent = fs.readFileSync(templatePath, 'utf-8')
+      const templateHbs = handlebars.compile(templateContent);
+      console.log(templateHbs(content))
       break
     case 'md':
       break
