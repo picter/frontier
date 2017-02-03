@@ -5,6 +5,8 @@ const handlebars = require('handlebars')
 const winston = require('winston')
 const kramed = require('kramed')
 
+winston.level = 'debug'
+
 const cwd = process.cwd()
 
 if (process.argv.length < 3) {
@@ -23,9 +25,9 @@ const themeFile = path.join(baseDirectory, 'theme.sass')
 const files = allFiles.filter(
   file => !ignoreFiles.includes(file)
 )
-winston.log('Files:', files)
-winston.log('Has index file:', fs.existsSync(indexFile))
-winston.log('Has theme file:', fs.existsSync(themeFile))
+winston.debug('Files:', files)
+winston.debug('Has index file:', fs.existsSync(indexFile))
+winston.debug('Has theme file:', fs.existsSync(themeFile))
 
 // Templates
 const templateDirectory = path.join(cwd, 'templates')
@@ -34,7 +36,7 @@ const allTemplates = fs.readdirSync(templateDirectory)
 const templates = allTemplates.filter(
   template => !['index.hbs'].includes(template)
 )
-winston.log('Templates:', templates)
+winston.debug('Templates:', templates)
 
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
@@ -50,7 +52,7 @@ const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
   const fileContent = fs.readFileSync(filePath, 'utf-8')
-  winston.log(file, fileType)
+  winston.debug(file, fileType)
 
   switch (fileType) {
     case 'json':
