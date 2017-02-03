@@ -1,0 +1,10 @@
+{
+  "template": "timeline",
+  "content": [
+    { "title": "Call for Entries Open", date: "%CALL_OPEN_DATE%" },
+    { "title": "Submission Deadline", date: "%CALL_CLOSE_DATE%" },
+    { "title": "Final Results Notification", date: "May 2017" },
+    { "title": "Publication of Winter 2017 issue of Aperture magazine", date: "December 2017" },
+    { "title": "Exhibition", date: "December 2017 – January 2018" }
+  ]
+}
