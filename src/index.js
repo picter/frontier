@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const process = require('process')
 const handlebars = require('handlebars')
+const winston = require('winston')
 
 const cwd = process.cwd()
 
@@ -21,9 +22,9 @@ const themeFile = path.join(baseDirectory, 'theme.sass')
 const files = allFiles.filter(
   file => !ignoreFiles.includes(file)
 )
-console.log('Files:', files)
-console.log('Has index file:', fs.existsSync(indexFile))
-console.log('Has theme file:', fs.existsSync(themeFile))
+winston.log('Files:', files)
+winston.log('Has index file:', fs.existsSync(indexFile))
+winston.log('Has theme file:', fs.existsSync(themeFile))
 
 // Templates
 const templateDirectory = path.join(cwd, 'templates')
@@ -32,7 +33,7 @@ const allTemplates = fs.readdirSync(templateDirectory)
 const templates = allTemplates.filter(
   template => !['index.hbs'].includes(template)
 )
-console.log('Templates:', templates)
+winston.log('Templates:', templates)
 
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
@@ -48,7 +49,7 @@ const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
   const fileContent = fs.readFileSync(filePath, 'utf-8')
-  console.log(file, fileType)
+  winston.log(file, fileType)
 
   switch (fileType) {
     case 'json':
