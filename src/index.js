@@ -13,11 +13,13 @@ const baseDirectory = path.join(cwd, directoryParam)
 
 const files = fs.readdirSync(baseDirectory)
 
-const ignoreFiles = ['assets']
+const ignoreFiles = ['assets', 'index.ini', 'theme.sass']
 const indexFile = path.join(baseDirectory, 'index.ini')
+const themeFile = path.join(baseDirectory, 'theme.sass')
 
 const filteredFiles = files.filter(
   file => !ignoreFiles.includes(file)
 )
 console.log(filteredFiles)
 console.log('Has index file:', fs.existsSync(indexFile))
+console.log('Has theme file:', fs.existsSync(themeFile))
