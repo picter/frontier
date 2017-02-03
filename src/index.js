@@ -23,3 +23,9 @@ const filteredFiles = files.filter(
 console.log(filteredFiles)
 console.log('Has index file:', fs.existsSync(indexFile))
 console.log('Has theme file:', fs.existsSync(themeFile))
+
+// Templates
+const templateDirectory = path.join(cwd, 'templates')
+const templates = fs.readdirSync(templateDirectory)
+
+console.log(templates)
