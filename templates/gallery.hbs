@@ -1,0 +1,17 @@
+<div id="winners" class="winner-section">
+  <h2>{{title}}</h2>
+  {{#each sections}}
+    <div class="winner-item">
+      <div class="caption">{{caption}}</div>
+      <div class="title">{{title}}</div>
+      <div class="images">
+        {{#each images}}
+          <div class="winner-image">
+            <img src={{image}} alt={{title}} />
+            <div class="title">{{title}}</div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
+</div>
