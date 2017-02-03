@@ -39,11 +39,13 @@ const indexOfFile = filename => parseInt(filename.split('-')[0])
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
-  const data = fs.readFileSync(filePath, 'utf-8')
+  const fileContent = fs.readFileSync(filePath, 'utf-8')
   console.log(file, fileType)
 
   switch (fileType) {
     case 'json':
+      const { template, content } = JSON.parse(fileContent)
+      console.log(template, content)
       break;
     case 'md':
       break;
