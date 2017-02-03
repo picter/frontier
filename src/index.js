@@ -37,7 +37,19 @@ console.log('Templates:', templates)
 const indexOfFile = filename => parseInt(filename.split('-')[0])
 
 const renderFile = file => {
-  console.log(file)
+  const filePath = path.join(baseDirectory, file)
+  const fileType = path.extname(file).replace('.', '')
+  const data = fs.readFileSync(filePath, 'utf-8')
+  console.log(file, fileType)
+
+  switch (fileType) {
+    case 'json':
+      break;
+    case 'md':
+      break;
+    default:
+      throw new Error(`Unkown file extension: ${fileType}.`)
+  }
 }
 
 files.sort((first, second) =>
