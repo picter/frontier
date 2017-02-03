@@ -26,6 +26,10 @@ console.log('Has theme file:', fs.existsSync(themeFile))
 
 // Templates
 const templateDirectory = path.join(cwd, 'templates')
-const templates = fs.readdirSync(templateDirectory)
+const allTemplates = fs.readdirSync(templateDirectory)
+
+const templates = allTemplates.filter(
+  template => !['index.hbs'].includes(template)
+)
 
 console.log(templates)
