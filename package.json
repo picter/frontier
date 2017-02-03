@@ -10,6 +10,7 @@
   "author": "Richard <hello@noxan.net>",
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^4.0.6"
+    "handlebars": "^4.0.6",
+    "winston": "^2.3.1"
   }
 }
