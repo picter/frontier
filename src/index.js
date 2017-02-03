@@ -11,16 +11,16 @@ if (process.argv.length < 3) {
 const directoryParam = process.argv[2]
 const baseDirectory = path.join(cwd, directoryParam)
 
-const files = fs.readdirSync(baseDirectory)
+const allFiles = fs.readdirSync(baseDirectory)
 
 const ignoreFiles = ['assets', 'index.ini', 'theme.sass']
 const indexFile = path.join(baseDirectory, 'index.ini')
 const themeFile = path.join(baseDirectory, 'theme.sass')
 
-const filteredFiles = files.filter(
+const files = allFiles.filter(
   file => !ignoreFiles.includes(file)
 )
-console.log('Files:', filteredFiles)
+console.log('Files:', files)
 console.log('Has index file:', fs.existsSync(indexFile))
 console.log('Has theme file:', fs.existsSync(themeFile))
 
