@@ -49,17 +49,18 @@ const renderFile = file => {
       const templatePath = path.join(cwd, 'templates', template + '.hbs')
       const templateContent = fs.readFileSync(templatePath, 'utf-8')
       const templateHbs = handlebars.compile(templateContent);
-      console.log(templateHbs(content))
-      break
+      return templateHbs(content)
     case 'md':
-      break
+      return ''
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
 }
 
-files.sort((first, second) =>
+const content = files.sort((first, second) =>
   indexOfFile(first) - indexOfFile(second)
-).forEach(
+).map(
   file => renderFile(file)
-)
+).join('\n')
+
+console.log(content)
