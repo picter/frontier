@@ -12,4 +12,10 @@ const directoryParam = process.argv[2]
 const baseDirectory = path.join(cwd, directoryParam)
 
 const files = fs.readdirSync(baseDirectory)
-console.log(files)
+
+const ignoreFiles = ['assets']
+
+const filteredFiles = files.filter(
+  file => !ignoreFiles.includes(file)
+)
+console.log(filteredFiles)
