@@ -32,3 +32,12 @@ const templates = allTemplates.filter(
   template => !['index.hbs'].includes(template)
 )
 console.log('Templates:', templates)
+
+// Render
+const indexOfFile = filename => parseInt(filename.split('-')[0])
+
+files.sort((first, second) =>
+  indexOfFile(first) - indexOfFile(second)
+).forEach(
+  file => console.log(file)
+)
