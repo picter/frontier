@@ -37,6 +37,14 @@ console.log('Templates:', templates)
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
 
+const renderJsonFile = fileContent => {
+  const { template, content } = JSON.parse(fileContent)
+  const templatePath = path.join(cwd, 'templates', template + '.hbs')
+  const templateContent = fs.readFileSync(templatePath, 'utf-8')
+  const templateHbs = handlebars.compile(templateContent)
+  return templateHbs(content)
+}
+
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
@@ -45,11 +53,7 @@ const renderFile = file => {
 
   switch (fileType) {
     case 'json':
-      const { template, content } = JSON.parse(fileContent)
-      const templatePath = path.join(cwd, 'templates', template + '.hbs')
-      const templateContent = fs.readFileSync(templatePath, 'utf-8')
-      const templateHbs = handlebars.compile(templateContent);
-      return templateHbs(content)
+      return renderJsonFile(fileContent)
     case 'md':
       return ''
     default:
