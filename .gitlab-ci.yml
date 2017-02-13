@@ -13,7 +13,7 @@ review:
     - node src/index.js organisations/aperture > index.html
   environment:
     name: review/$CI_BUILD_REF_NAME
-    url: https://$CI_BUILD_REF_NAME.$APPS_DOMAIN
+    url: https://pages.staging.picter.io/$CI_BUILD_REF_NAME
   only:
     - branches
   except:
