@@ -1,6 +1,7 @@
 image: kkarczmarczyk/node-yarn
 
 before_script:
+  - pip install awscli
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
   - yarn
 
