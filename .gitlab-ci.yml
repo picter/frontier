@@ -14,7 +14,7 @@ review:
     - aws s3 cp "./index.html" "s3://pages.staging.picter.io/${CI_BUILD_REF_NAME}/" --acl public-read --region eu-west-1
   environment:
     name: review/$CI_BUILD_REF_NAME
-    url: https://pages.staging.picter.io/$CI_BUILD_REF_NAME
+    url: http://pages.staging.picter.io/$CI_BUILD_REF_NAME
   only:
     - branches
   except:
