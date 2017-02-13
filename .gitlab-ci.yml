@@ -1,0 +1,5 @@
+image: kkarczmarczyk/node-yarn
+
+before_script:
+  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+  - yarn
