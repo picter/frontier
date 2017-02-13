@@ -1,9 +1,8 @@
-image: kkarczmarczyk/node-yarn
+image: picter/app-artists-ci
 
 before_script:
-  - pip install awscli
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-  - yarn
+  - npm install --quiet
 
 stages:
   - review
