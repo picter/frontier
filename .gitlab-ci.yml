@@ -1,8 +1,8 @@
-image: picter/app-artists-ci
+image: noxan/docker-node-awscli-yarn
 
 before_script:
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-  - npm install --quiet
+  - yarn
 
 stages:
   - review
