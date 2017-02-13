@@ -6,6 +6,7 @@ before_script:
 
 stages:
   - review
+  - deploy
 
 review:
   stage: review
@@ -18,4 +19,15 @@ review:
   only:
     - branches
   except:
+    - master
+
+deploy-staging:
+  stage: deploy
+  script:
+    - node src/index.js organisations/aperture > index.html
+    - aws s3 cp "./index.html" "s3://pages.staging.picter.io/" --acl public-read --region eu-west-1
+  environment:
+    name: Staging
+    url: http://pages.staging.picter.io/
+  only:
     - master
