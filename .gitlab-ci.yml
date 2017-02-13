@@ -1,0 +1,33 @@
+image: noxan/docker-node-awscli-yarn
+
+before_script:
+  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+  - yarn
+
+stages:
+  - review
+  - deploy
+
+review:
+  stage: review
+  script:
+    - node src/index.js organisations/aperture > index.html
+    - aws s3 cp "./index.html" "s3://pages.staging.picter.io/${CI_BUILD_REF_NAME}/" --acl public-read --region eu-west-1
+  environment:
+    name: Review/$CI_BUILD_REF_NAME
+    url: http://pages.staging.picter.io/$CI_BUILD_REF_NAME
+  only:
+    - branches
+  except:
+    - master
+
+deploy-staging:
+  stage: deploy
+  script:
+    - node src/index.js organisations/aperture > index.html
+    - aws s3 cp "./index.html" "s3://pages.staging.picter.io/" --acl public-read --region eu-west-1
+  environment:
+    name: Staging
+    url: http://pages.staging.picter.io/
+  only:
+    - master
