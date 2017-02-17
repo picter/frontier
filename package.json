@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:page": "mkdir -p dist && node . organisations/aperture > dist/index.html",
     "build:sass": "node-sass src/styles.sass -o dist/",
-    "build": "npm run build:sass && npm run build:page"
+    "build:assets": "cp -r organisations/aperture/assets dist",
+    "build": "npm run build:sass && npm run build:assets && npm run build:page"
   },
   "repository": "git@git.picter.com:picter/pages.git",
   "author": "Richard <hello@noxan.net>",
