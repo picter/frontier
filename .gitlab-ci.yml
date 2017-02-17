@@ -12,7 +12,7 @@ review:
   stage: review
   script:
     - npm run build
-    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/${CI_BUILD_REF_NAME}/" --acl public-read --region eu-west-1
+    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/${CI_BUILD_REF_NAME}/" --acl public-read --recursive --region eu-west-1
   environment:
     name: Review/$CI_BUILD_REF_NAME
     url: http://pages.staging.picter.io/$CI_BUILD_REF_NAME
@@ -26,7 +26,7 @@ deploy-staging:
   script:
     - node src/index.js organisations/aperture > index.html
     - npm run build
-    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/" --acl public-read --region eu-west-1
+    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/" --acl public-read --recursive --region eu-west-1
   environment:
     name: Staging
     url: http://pages.staging.picter.io/
