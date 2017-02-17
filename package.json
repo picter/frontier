@@ -4,7 +4,8 @@
   "description": "Static website generator for picter.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:styles": "node-sass src/styles.sass -o dist/"
   },
   "repository": "git@git.picter.com:picter/pages.git",
   "author": "Richard <hello@noxan.net>",
