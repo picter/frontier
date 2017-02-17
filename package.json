@@ -4,14 +4,21 @@
   "description": "Static website generator for picter.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:page": "mkdir -p dist && node . organisations/aperture > dist/index.html",
+    "build:sass": "node-sass src/styles.sass -o dist/",
+    "build": "npm run build:sass && npm run build:page"
   },
   "repository": "git@git.picter.com:picter/pages.git",
   "author": "Richard <hello@noxan.net>",
   "license": "MIT",
   "dependencies": {
+    "@picter/elements": "^0.14.2",
     "handlebars": "^4.0.6",
     "kramed": "^0.5.6",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0"
   }
 }
