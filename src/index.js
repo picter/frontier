@@ -4,6 +4,7 @@ const process = require('process')
 const handlebars = require('handlebars')
 const winston = require('winston')
 const kramed = require('kramed')
+const ini = require('ini')
 
 winston.level = 'debug'
 
@@ -51,8 +52,9 @@ const renderJsonFile = (template, content) => {
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
+  const fileName = path.basename(file, path.extname(file));
   const fileContent = fs.readFileSync(filePath, 'utf-8')
-  winston.debug(file, fileType)
+  winston.debug(fileName, fileType)
 
   switch (fileType) {
     case 'json':
@@ -72,7 +74,7 @@ const content = files.sort((first, second) =>
 ).join('\n')
 
 
-const indexFileContent = fs.readFileSync(indexFile, 'utf-8')
+const indexFileContent = ini.parse(fs.readFileSync(indexFile, 'utf-8'))
 
 const indexContent = Object.assign({}, {
   content: new handlebars.SafeString(content),
