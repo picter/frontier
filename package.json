@@ -14,7 +14,7 @@
   "author": "Richard <hello@noxan.net>",
   "license": "MIT",
   "dependencies": {
-    "@picter/elements": "^0.14.2",
+    "@picter/elements": "^0.17.0",
     "handlebars": "^4.0.6",
     "kramed": "^0.5.6",
     "winston": "^2.3.1"
