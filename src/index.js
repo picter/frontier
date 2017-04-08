@@ -59,7 +59,7 @@ const renderFile = file => {
       const { template, content } = JSON.parse(fileContent)
       return renderJsonFile(template, content)
     case 'md':
-      return kramed(fileContent)
+      return `<div class="container">${kramed(fileContent)}</div>`
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
