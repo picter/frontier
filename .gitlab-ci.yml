@@ -5,8 +5,14 @@ before_script:
   - yarn
 
 stages:
+  - lint
   - review
   - deploy
+
+lint:
+  stage: lint
+  script:
+    - npm run lint
 
 review:
   stage: review
