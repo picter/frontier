@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard",
     "build:page": "mkdir -p dist && node . organisations/aperture > dist/index.html",
     "build:sass": "node-sass src/styles.sass -o dist/",
     "build:assets": "cp -r organisations/aperture/assets dist",
