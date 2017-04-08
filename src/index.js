@@ -11,7 +11,7 @@ winston.level = 'debug'
 const cwd = process.cwd()
 
 if (process.argv.length < 3) {
-  return console.log('Please provide an base directory as parameter.')
+  throw new Error('Please provide an base directory as parameter.')
 }
 
 const directoryParam = process.argv[2]
@@ -52,7 +52,7 @@ const renderJsonFile = (template, content) => {
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
-  const fileName = path.basename(file, path.extname(file));
+  const fileName = path.basename(file, path.extname(file))
   const fileContent = fs.readFileSync(filePath, 'utf-8')
   winston.debug(fileName, fileType)
 
@@ -73,11 +73,10 @@ const content = files.sort((first, second) =>
   file => renderFile(file)
 ).join('\n')
 
-
 const indexFileContent = ini.parse(fs.readFileSync(indexFile, 'utf-8'))
 
 const indexContent = Object.assign({}, {
-  content: new handlebars.SafeString(content),
+  content: new handlebars.SafeString(content)
 }, indexFileContent)
 
 const result = renderJsonFile('index', indexContent)
