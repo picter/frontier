@@ -4,6 +4,7 @@ const process = require('process')
 const handlebars = require('handlebars')
 const winston = require('winston')
 const kramed = require('kramed')
+const ini = require('ini')
 
 winston.level = 'debug'
 
@@ -73,7 +74,7 @@ const content = files.sort((first, second) =>
 ).join('\n')
 
 
-const indexFileContent = fs.readFileSync(indexFile, 'utf-8')
+const indexFileContent = ini.parse(fs.readFileSync(indexFile, 'utf-8'))
 
 const indexContent = Object.assign({}, {
   content: new handlebars.SafeString(content),
