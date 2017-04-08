@@ -1,19 +1,17 @@
 <div id="winners" class="winner-section">
   <h1>{{title}}</h1>
-  <div class="container">
-    {{#each sections}}
-      <div class="winner-item">
-        <div class="caption">{{caption}}</div>
-        <div class="title">{{title}}</div>
-        <div class="images">
-          {{#each images}}
-            <div class="winner-image">
-              <img src={{image}} alt={{title}} />
-              <div class="title">{{title}}</div>
-            </div>
-          {{/each}}
-        </div>
+  {{#each sections}}
+    <div class="winner-item">
+      <div class="caption">{{caption}}</div>
+      <h2 class="title">{{title}}</h2>
+      <div class="images">
+        {{#each images}}
+          <div class="winner-image">
+            <img src={{image}} alt={{title}} />
+            <div class="title">{{title}}</div>
+          </div>
+        {{/each}}
       </div>
-    {{/each}}
-  </div>
+    </div>
+  {{/each}}
 </div>

@@ -24,7 +24,25 @@ ol
 .winner-section
   background-color: $black
   padding: 110px
+  text-align: center
 
   &,
-  h1
+  h1,
+  h2
     color: $white
+
+  .winner-item
+    &:not(:last-child)
+      margin-bottom: 110px
+
+    .images
+      display: flex
+      justify-content: center
+
+      img
+        max-width: 100%
+
+      .winner-image
+        flex-grow: 1
+        flex-shrink: 1
+        margin: 30px 20px 0
