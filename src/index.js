@@ -51,8 +51,9 @@ const renderJsonFile = (template, content) => {
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
+  const fileName = path.basename(file, path.extname(file));
   const fileContent = fs.readFileSync(filePath, 'utf-8')
-  winston.debug(file, fileType)
+  winston.debug(fileName, fileType)
 
   switch (fileType) {
     case 'json':
