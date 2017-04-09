@@ -21,6 +21,45 @@ ol
   margin: 80px auto
   max-width: 700px
 
+.organistion-header
+  .teaser
+    background-position: center
+    height: calc(100vh - 50px)
+    position: relative
+
+    .copyright
+      bottom: 5px
+      position: absolute
+      right: 5px
+
+  .summary
+    background-color: $black
+    color: $white
+    display: flex
+    justify-content: center
+    min-height: 280px
+    text-align: center
+
+    .organisation-logo
+      max-height: 175px
+      max-width: 175px
+
+    .left,
+    .right
+      flex-basis: 400px
+      flex-grow: 1
+
+    .center
+      flex-grow: 2
+
+    .left,
+    .center,
+    .right
+      align-items: center
+      display: flex
+      justify-content: center
+      padding: 40px
+
 .winner-section
   background-color: $black
   padding: 110px
