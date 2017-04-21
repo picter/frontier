@@ -1,10 +1,10 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as process from 'process'
-import handlebars from 'handlebars'
-import winston from 'winston'
-import kramed from 'kramed'
-import ini from 'ini'
+import * as handlebars from 'handlebars'
+import * as winston from 'winston'
+import * as kramed from 'kramed'
+import * as ini from 'ini'
 
 winston.level = 'debug'
 
