@@ -4,6 +4,7 @@
       "es2017"
     ],
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es5",
     "noImplicitAny": false,
     "sourceMap": false
