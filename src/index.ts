@@ -1,10 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-const process = require('process')
-const handlebars = require('handlebars')
-const winston = require('winston')
-const kramed = require('kramed')
-const ini = require('ini')
+import fs from 'fs'
+import path from 'path'
+import process from 'process'
+import handlebars from 'handlebars'
+import winston from 'winston'
+import kramed from 'kramed'
+import ini from 'ini'
 
 winston.level = 'debug'
 
