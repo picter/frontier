@@ -2,11 +2,11 @@
   "name": "@picter/pages",
   "version": "0.1.0",
   "description": "Static website generator for picter.",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard",
-    "build:page": "mkdir -p dist && node . organisations/aperture > dist/index.html",
+    "build:page": "mkdir -p dist && ts-node . organisations/aperture > dist/index.html",
     "build:sass": "node-sass src/styles.sass -o dist/",
     "build:assets": "cp -r organisations/aperture/assets dist",
     "build": "npm run build:sass && npm run build:assets && npm run build:page"
@@ -22,8 +22,11 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "@types/node": "^7.0.13",
     "node-sass": "^4.5.2",
     "sass-lint": "^1.10.2",
-    "standard": "^10.0.1"
+    "standard": "^10.0.1",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2"
   }
 }
