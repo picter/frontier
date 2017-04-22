@@ -3,8 +3,10 @@ import * as path from 'path'
 import * as process from 'process'
 import * as handlebars from 'handlebars'
 import * as winston from 'winston'
-import * as kramed from 'kramed'
 import * as ini from 'ini'
+
+import renderJson, { renderJsonFile } from './files/json'
+import renderMarkdown from './files/markdown'
 
 winston.level = 'debug'
 
@@ -42,13 +44,6 @@ winston.debug('Templates:', templates)
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
 
-const renderJsonFile = (template, content) => {
-  const templatePath = path.join(cwd, 'templates', template + '.hbs')
-  const templateContent = fs.readFileSync(templatePath, 'utf-8')
-  const templateHbs = handlebars.compile(templateContent)
-  return templateHbs(content)
-}
-
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
   const fileType = path.extname(file).replace('.', '')
@@ -58,10 +53,9 @@ const renderFile = file => {
 
   switch (fileType) {
     case 'json':
-      const { template, content } = JSON.parse(fileContent)
-      return renderJsonFile(template, content)
+      return renderJson(fileContent)
     case 'md':
-      return `<div class="container">${kramed(fileContent)}</div>`
+      return renderMarkdown(fileContent)
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
