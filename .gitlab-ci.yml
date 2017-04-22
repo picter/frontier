@@ -7,7 +7,7 @@ cache:
 
 before_script:
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-  - yarn
+  - yarn install --frozen-lockfile --pure-lockfile
 
 stages:
   - lint
