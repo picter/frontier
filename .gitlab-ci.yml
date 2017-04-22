@@ -1,5 +1,10 @@
 image: noxan/docker-node-awscli-yarn
 
+cache:
+  key: 'app-curators'
+  paths:
+    - node_modules/
+
 before_script:
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
   - yarn
