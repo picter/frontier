@@ -27,6 +27,7 @@
     "sass-lint": "^1.10.2",
     "standard": "^10.0.1",
     "ts-node": "^3.0.2",
+    "tslint-config-standard": "^5.0.2",
     "typescript": "^2.2.2"
   }
 }
