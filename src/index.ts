@@ -3,8 +3,9 @@ import * as path from 'path'
 import * as process from 'process'
 import * as handlebars from 'handlebars'
 import * as winston from 'winston'
-import * as kramed from 'kramed'
 import * as ini from 'ini'
+
+import renderMarkdown from './files/markdown'
 
 winston.level = 'debug'
 
@@ -61,7 +62,7 @@ const renderFile = file => {
       const { template, content } = JSON.parse(fileContent)
       return renderJsonFile(template, content)
     case 'md':
-      return `<div class="container">${kramed(fileContent)}</div>`
+      return renderMarkdown(fileContent)
     default:
       throw new Error(`Unkown file extension: ${fileType}.`)
   }
