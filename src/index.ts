@@ -5,7 +5,7 @@ import * as handlebars from 'handlebars'
 import * as winston from 'winston'
 import * as ini from 'ini'
 
-import { renderJsonFile } from './files/json'
+import renderJson, { renderJsonFile } from './files/json'
 import renderMarkdown from './files/markdown'
 
 winston.level = 'debug'
@@ -53,8 +53,7 @@ const renderFile = file => {
 
   switch (fileType) {
     case 'json':
-      const { template, content } = JSON.parse(fileContent)
-      return renderJsonFile(template, content)
+      return renderJson(fileContent)
     case 'md':
       return renderMarkdown(fileContent)
     default:
