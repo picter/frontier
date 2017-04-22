@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard",
+    "lint": "tslint --project tslint.json",
     "build:page": "mkdir -p dist && ts-node . organisations/aperture > dist/index.html",
     "build:sass": "node-sass src/styles.sass -o dist/",
     "build:assets": "cp -r organisations/aperture/assets dist",
@@ -25,8 +25,9 @@
     "@types/node": "^7.0.13",
     "node-sass": "^4.5.2",
     "sass-lint": "^1.10.2",
-    "standard": "^10.0.1",
     "ts-node": "^3.0.2",
+    "tslint": "^5.1.0",
+    "tslint-config-airbnb": "^1.1.1",
     "typescript": "^2.2.2"
   }
 }
