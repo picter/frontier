@@ -5,6 +5,7 @@ import * as handlebars from 'handlebars'
 import * as winston from 'winston'
 import * as ini from 'ini'
 
+import { renderJsonFile } from './files/json'
 import renderMarkdown from './files/markdown'
 
 winston.level = 'debug'
@@ -42,13 +43,6 @@ winston.debug('Templates:', templates)
 
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0])
-
-const renderJsonFile = (template, content) => {
-  const templatePath = path.join(cwd, 'templates', template + '.hbs')
-  const templateContent = fs.readFileSync(templatePath, 'utf-8')
-  const templateHbs = handlebars.compile(templateContent)
-  return templateHbs(content)
-}
 
 const renderFile = file => {
   const filePath = path.join(baseDirectory, file)
