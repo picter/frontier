@@ -8,6 +8,7 @@ cache:
 before_script:
   - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
   - yarn install --frozen-lockfile --pure-lockfile
+  - npm rebuild node-sass
 
 stages:
   - lint
