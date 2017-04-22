@@ -35,7 +35,6 @@ review:
 deploy-staging:
   stage: deploy
   script:
-    - node src/index.js organisations/aperture > index.html
     - npm run build
     - aws s3 cp "./dist/" "s3://pages.staging.picter.io/" --acl public-read --recursive --region eu-west-1
   environment:
