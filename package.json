@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard",
+    "lint": "tslint --type-check --project tslint.json",
     "build:page": "mkdir -p dist && ts-node . organisations/aperture > dist/index.html",
     "build:sass": "node-sass src/styles.sass -o dist/",
     "build:assets": "cp -r organisations/aperture/assets dist",
