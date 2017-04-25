@@ -1,0 +1,209 @@
+{
+  "id": "6a2b9796-ef1a-4e55-9e1b-48322af71453",
+  "organisationId": "33458768-3be0-4a93-ac55-5cd86b7c6aa0",
+  "title": {
+    "en": "Aperture Portfolio Prize 2017"
+  },
+  "description": {
+    "en": "The Aperture Portfolio Prize is an annual international competition to discover, exhibit, and publish new talents in photography."
+  },
+  "website": "https://aperture.picter.com",
+  "slug": "aperture-portfolio-prize-2017",
+  "createdAt": 1479477099766,
+  "updatedAt": 1486678524327,
+  "requirements": {
+    "profile": [
+      "publicName",
+      "dateOfBirth",
+      "bioLong",
+      "address",
+      "cvBeta"
+    ],
+    "projects": [
+      {
+        "minImages": 10,
+        "maxImages": 15,
+        "minEdge": 1500,
+        "titleRequired": true,
+        "descriptionRequired": true,
+        "imageTitleRequired": true,
+        "imageYearRequired": true,
+        "yearRequired": false,
+        "locationRequired": false,
+        "countryRequired": false,
+        "imageDescriptionRequired": false,
+        "imageLocationRequired": false,
+        "imageCountryRequired": false,
+        "isOptional": false
+      }
+    ]
+  },
+  "fee": 0,
+  "submissionStartDate": 1480611397154,
+  "submissionEndDate": 1486011600000,
+  "termsAndConditions": {
+    "en": "## Terms and Conditions\n\nAperture Foundation reserves the right to reject entries that are submitted without the\nrequired information or that do not meet the criteria of eligibility, without any obligation\nto enter into any further discussion regarding the editor’s decisions, and without obligation\nto refund the entrant’s magazine subscription.\n\nEntries should come directly from artists, not from galleries or representatives.\n\nThe editors’ decisions shall be final. No correspondence shall be entered into by Aperture Foundation,\nnor its representatives, regarding the decisions of the editor(s).\n\nWhile copyright of all work submitted for the Portfolio Prize remains with the respective entrants,\nthe entrant grants to Aperture Foundation a worldwide, irrevocable, and perpetual license to reproduce\nrepresentative examples of the submitted entries in any of their publications, websites, and/or promotional\nmaterial, strictly in connection with the Portfolio Prize, and with reference to the photographer as\nrelevant in each case.\n\nRepresentatives of Aperture Foundation are not available to review unsolicited materials received except\nas entered via the Portfolio Prize.\n\nDetails of particular entries may be, at the discretion of Aperture Foundation, released to the press\nto promote the Portfolio Prize, including before the announcement of the short list for the prize,\nand may be used to promote the call for entry the following year.\n\nApplicants warrant that the entry submission is the original work of the artist and, as such, the artist\nis the sole and exclusive owner and rights holder of the submitted work, and that the party submitting has\nthe right to submit the work for exhibition and/or publication and grants all required licenses. Each\nentrant agrees not to submit any entry that (1) infringes any third party’s proprietary rights,\nintellectual property rights, industrial property rights, personal or moral rights or any other rights,\nincluding without limitation, copyright, trademark, patent, trade secret, privacy, publicity, or\nconfidentiality obligations; and (2) otherwise violates the applicable state, federal, provincial, or local law.\n\nNo exceptions will be made for late submissions.\n\nAperture magazine subscriptions are non-refundable.\n"
+  },
+  "logoDefault": "https://s3-eu-west-1.amazonaws.com/picter-assets/calls/aperture-portfolio-prize-2017/logo-default.svg",
+  "submissionIntroduction": null,
+  "confirmationMailText": {
+    "en": ""
+  },
+  "abbreviation": "AP01",
+  "submissions": [
+    {
+      "id": "000cf12e-f0a1-48a4-8719-74d9ee7cb5df",
+      "callId": "6a2b9796-ef1a-4e55-9e1b-48322af71453",
+      "userId": "98e8644c-ea28-47a1-880d-a1836d5947fb",
+      "key": null,
+      "statusHistory": null,
+      "createdAt": 1485626988407,
+      "updatedAt": 1485626988407,
+      "status": null,
+      "profileDump": null,
+      "submitted": false,
+      "invoiceId": null,
+      "prerequisiteFields": null,
+      "roundIndex": 0,
+      "index": null,
+      "callRoundId": "0a42faa9-6df3-4a1e-a5d6-9f720617dbda"
+    }
+  ],
+  "users": [
+    {
+      "id": "0912daf0-9c35-4362-a7d3-5e921dd4e698",
+      "firstName": "Ashley",
+      "lastName": "Strazzinski",
+      "artistName": "Ashley Strazzinski",
+      "publicName": "Ashley Strazzinski",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "owner"
+    },
+    {
+      "id": "d0581d4f-00b4-4cd5-b28c-e4936abe99a4",
+      "firstName": "Work Scholars",
+      "lastName": "Aperture",
+      "artistName": "",
+      "publicName": "Work Scholars Aperture",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "a10a0748-47fd-4455-abe2-d4ceebb2036e",
+      "firstName": "Lesley",
+      "lastName": "Martin",
+      "artistName": "",
+      "publicName": "Lesley Martin",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "chief-curator"
+    },
+    {
+      "id": "1ebd4ea5-facc-4150-81d2-faa04647daae",
+      "firstName": "Chris",
+      "lastName": "Boot",
+      "artistName": "",
+      "publicName": "Chris Boot",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "deef7d46-f861-4a1d-91f2-e4d7d47cc43e",
+      "firstName": "Kellie",
+      "lastName": "McLaughlin",
+      "artistName": "",
+      "publicName": "Kellie McLaughlin",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "86797fe1-5884-44b2-93c4-1f2d5400568a",
+      "firstName": "Denise",
+      "lastName": "Wolff",
+      "artistName": "",
+      "publicName": "Denise Wolff",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "7840b74a-f3f1-425b-93c9-9da6f139e8a0",
+      "firstName": "Amelia",
+      "lastName": "Lang",
+      "artistName": "",
+      "publicName": "Amelia Lang",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "353be1dc-9d33-46cb-a090-1db7475cdedd",
+      "firstName": "Michael",
+      "lastName": "Famighetti",
+      "artistName": "",
+      "publicName": "Michael Famighetti",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "7ec22d9a-3c9e-4b91-84d7-de60b76853cf",
+      "firstName": "Katie",
+      "lastName": "Booth",
+      "artistName": "",
+      "publicName": "Katie Booth",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "04565cb0-6cad-4c93-a99c-2dde504cb13b",
+      "firstName": "Annette",
+      "lastName": "Booth",
+      "artistName": "",
+      "publicName": "Annette Booth",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    },
+    {
+      "id": "7958e8a3-025f-43c0-93d9-fd560b527aec",
+      "firstName": "Nelson",
+      "lastName": "Chan",
+      "artistName": "",
+      "publicName": "Nelson Chan",
+      "age": 0,
+      "cv": null,
+      "profileImage": null,
+      "scope": "curator"
+    }
+  ],
+  "prerequisites": {
+    "fields": [
+      {
+        "name": "apertureSubscriptionNumber",
+        "label": {
+          "en": "Aperture subscription number"
+        },
+        "type": "string"
+      }
+    ],
+    "description": {
+      "en": "### Are you Aperture Magazine subscriber?\n\nTo be eligible to enter the *2017 Aperture Portfolio Prize*, you have to\nbe an *Aperture Magazine* print subscriber.\n\nTo subscribe, please visit [aperture.org/magazine](http://aperture.org/magazine).\nOnce you’ve subscribed, you will receive an e-receipt containing your unique magazine\naccount number. Please enter this number below.\n\nIf you are already a print subscriber and your subscription is current through\nthe *Spring 2017* issue, please check your inbox for an e-mail containing your magazine\naccount number or contact [apertureprize@aperture.org](mailto:apertureprize@aperture.org)\nwith questions.\n"
+    }
+  }
+}
