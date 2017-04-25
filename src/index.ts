@@ -8,6 +8,7 @@ import * as ini from 'ini';
 import { renderJsonFile } from './files/json';
 import templates from './templates';
 import { renderFile } from './renderer';
+import postprocess from './postprocess';
 
 winston.level = 'debug';
 
@@ -50,6 +51,6 @@ const indexContent = Object.assign({}, {
   content: new handlebars.SafeString(content),
 }, indexFileContent);
 
-const result = renderJsonFile('index', indexContent);
+const result = postprocess(renderJsonFile('index', indexContent));
 
 console.log(result);
