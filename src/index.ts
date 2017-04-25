@@ -8,6 +8,7 @@ import * as ini from 'ini';
 import { renderJsonFile } from './files/json';
 import templates from './templates';
 import { renderFile } from './renderer';
+import postprocess from './postprocess';
 
 winston.level = 'debug';
 
@@ -50,19 +51,6 @@ const indexContent = Object.assign({}, {
   content: new handlebars.SafeString(content),
 }, indexFileContent);
 
-let result = renderJsonFile('index', indexContent);
-
-const callFieldMapping = {
-  CALL_OPEN_DATE: 'submissionStartDate',
-  CALL_CLOSE_DATE: 'submissionEndDate',
-};
-
-const apertureCallData = require('../mocks/request-aperture.json');
-
-Object.keys(callFieldMapping).forEach(key => {
-  const callField = callFieldMapping[key];
-  const value = apertureCallData[callField];
-  result = result.replace(`%${key}%`, value);
-});
+const result = postprocess(renderJsonFile('index', indexContent));
 
 console.log(result);
