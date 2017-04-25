@@ -2,6 +2,9 @@ const formatDate = raw => {
   return new Date(raw);
 };
 
+
+const get = (obj, key) => obj[key];
+
 const callFieldMapping = {
   CALL_OPEN_DATE: {
     key: 'submissionStartDate',
@@ -23,7 +26,7 @@ export default page => {
 
   Object.keys(callFieldMapping).map(key => {
     const callField = callFieldMapping[key];
-    const value = apertureCallData[callField.key];
+    const value = get(apertureCallData, callField.key);
     const process = callField.process || (a => a);
     result = result.replace(`%${key}%`, process(value));
   });
