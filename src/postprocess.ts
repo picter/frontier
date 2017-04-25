@@ -11,6 +11,9 @@ const callFieldMapping = {
     key: 'submissionEndDate',
     process: formatDate,
   },
+  ORGANISATION_SLOGAN: {
+    key: 'description.en',
+  },
 };
 
 const apertureCallData = require('../mocks/request-aperture.json');
