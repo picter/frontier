@@ -3,7 +3,10 @@ const formatDate = raw => {
 };
 
 
-const get = (obj, key) => obj[key];
+const get = (obj: Object, key: string) =>
+  key.split('.').reduce((prev, keyPart) =>
+    prev[keyPart],
+  obj);
 
 const callFieldMapping = {
   CALL_OPEN_DATE: {
