@@ -13,10 +13,15 @@ const callFieldMapping = {
 
 const apertureCallData = require('../mocks/request-aperture.json');
 
-export default result =>
-  Object.keys(callFieldMapping).forEach(key => {
+export default page => {
+  let result = page;
+
+  Object.keys(callFieldMapping).map(key => {
     const callField = callFieldMapping[key];
     const value = apertureCallData[callField];
     const process = callField.process || (a => a);
     result = result.replace(`%${key}%`, process(value));
   });
+
+  return result;
+};
