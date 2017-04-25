@@ -5,9 +5,9 @@ import * as handlebars from 'handlebars';
 import * as winston from 'winston';
 import * as ini from 'ini';
 
-import json, { renderJsonFile } from './files/json';
-import markdown from './files/markdown';
+import { renderJsonFile } from './files/json';
 import templates from './templates';
+import { renderFile } from './renderer';
 
 winston.level = 'debug';
 
@@ -38,27 +38,10 @@ winston.debug('Templates:', templates);
 // Render
 const indexOfFile = filename => parseInt(filename.split('-')[0], 10);
 
-const renderFile = file => {
-  const filePath = path.join(baseDirectory, file);
-  const fileType = path.extname(file).replace('.', '');
-  const fileName = path.basename(file, path.extname(file));
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  winston.debug(fileName, fileType);
-
-  switch (fileType) {
-    case 'json':
-      return json(fileContent);
-    case 'md':
-      return markdown(fileContent);
-    default:
-      throw new Error(`Unkown file extension: ${fileType}.`);
-  }
-};
-
 const content = files.sort((first, second) =>
   indexOfFile(first) - indexOfFile(second),
 ).map(
-  file => renderFile(file),
+  file => renderFile(baseDirectory, file),
 ).join('\n');
 
 const indexFileContent = ini.parse(fs.readFileSync(indexFile, 'utf-8'));
