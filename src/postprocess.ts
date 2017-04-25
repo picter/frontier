@@ -1,4 +1,6 @@
-const formatDate = date => date;
+const formatDate = raw => {
+  return new Date(raw);
+};
 
 const callFieldMapping = {
   CALL_OPEN_DATE: {
