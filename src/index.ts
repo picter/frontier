@@ -7,6 +7,7 @@ import * as ini from 'ini';
 
 import json, { renderJsonFile } from './files/json';
 import markdown from './files/markdown';
+import templates from './templates';
 
 winston.level = 'debug';
 
@@ -32,13 +33,6 @@ winston.debug('Files:', files);
 winston.debug('Has index file:', fs.existsSync(indexFile));
 winston.debug('Has theme file:', fs.existsSync(themeFile));
 
-// Templates
-const templateDirectory = path.join(cwd, 'templates');
-const allTemplates = fs.readdirSync(templateDirectory);
-
-const templates = allTemplates.filter(
-  template => !['index.hbs'].includes(template),
-);
 winston.debug('Templates:', templates);
 
 // Render
