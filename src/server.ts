@@ -27,7 +27,11 @@ app.use(async ctx => {
   } else if (!url.endsWith('/')) {
     ctx.redirect(ctx.url + '/');
   } else {
-    ctx.body = renderPage(url);
+    ctx.body = renderPage(url)
+      .replace('</body>', `<script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' + 'script>')
+      </script></body>`);
   }
 });
 
