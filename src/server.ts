@@ -1,5 +1,6 @@
 import * as Application from 'koa';
 import * as send from 'koa-send';
+import * as sass from 'node-sass';
 
 import { renderPage } from './renderer';
 
@@ -11,7 +12,10 @@ app.use(async ctx => {
     url = url.substring(1);
   }
   if (url.endsWith('styles.css')) {
-    ctx.status = 404;
+    ctx.type = 'text/css';
+    ctx.body = sass.renderSync({
+      file: './src/styles.sass',
+    }).css;
   } else if (url.includes('assets')) {
     await send(ctx, url);
   } else {
