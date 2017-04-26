@@ -7,6 +7,7 @@ import * as send from 'koa-send';
 import { renderPage } from './renderer';
 
 const lrserver = livereload.createServer({
+  exts: ['json', 'md', 'sass', 'ini'],
 });
 lrserver.watch(path.resolve(__dirname, '..'));
 
