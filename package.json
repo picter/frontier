@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/node": "^7.0.13",
     "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
     "sass-lint": "^1.10.2",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
