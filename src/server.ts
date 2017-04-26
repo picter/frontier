@@ -18,6 +18,8 @@ app.use(async ctx => {
     }).css;
   } else if (url.includes('assets')) {
     await send(ctx, url);
+  } else if (!url.endsWith('/')) {
+    ctx.redirect(ctx.url + '/');
   } else {
     ctx.body = renderPage(url);
   }
