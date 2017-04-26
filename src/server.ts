@@ -1,8 +1,14 @@
 import * as Application from 'koa';
-import * as send from 'koa-send';
+import * as livereload from 'livereload';
+import * as path from 'path';
 import * as sass from 'node-sass';
+import * as send from 'koa-send';
 
 import { renderPage } from './renderer';
+
+const lrserver = livereload.createServer({
+});
+lrserver.watch(path.resolve(__dirname, '..'));
 
 const app = new Application();
 
