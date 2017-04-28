@@ -11,6 +11,11 @@ import postprocess from './postprocess';
 
 export const renderFile = (baseDirectory, file) => {
   const filePath = path.join(baseDirectory, file);
+
+  if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+    throw new Error('File to render does not exist.');
+  }
+
   const fileType = path.extname(file).replace('.', '');
   const fileName = path.basename(file, path.extname(file));
   const fileContent = fs.readFileSync(filePath, 'utf-8');
