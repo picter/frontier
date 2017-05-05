@@ -30,11 +30,11 @@ app.use(async ctx => {
     ctx.redirect(ctx.url + '/');
   } else {
     try {
-      ctx.body = renderPage(url)
-        .replace('</body>', `<script>
+      ctx.body = renderPage(url) +
+        `<script>
           document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
           ':35729/livereload.js?snipver=1"></' + 'script>')
-        </script></body>`);
+        </script>`;
     } catch (err) {
       ctx.status = 500;
       ctx.body = err.message;
