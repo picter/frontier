@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Static website generator for picter.",
   "main": "src/index.ts",
+  "bin": {
+    "pages": "./bin/pages"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint --project tslint.json",
