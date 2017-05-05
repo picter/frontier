@@ -1,7 +1,7 @@
 # How to enter
 
 This year, the sole entry requirement for entering the Portfolio Prize is to be
-an Aperture magazine print subscriber. To subscribe, please visit aperture.org/magprize.
+an Aperture magazine print subscriber. To subscribe, please visit [aperture.org/magprize](http://aperture.org/magprize).
 
 Once you’ve subscribed, you will receive an e-receipt containing your unique magazine
 account number. After free registration with picter – in the first step of the submission
