@@ -13,7 +13,7 @@ export const renderFile = (baseDirectory, file) => {
   const filePath = path.join(baseDirectory, file);
 
   if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
-    throw new Error('File to render does not exist.');
+    throw new Error('File to render does not exist (' + filePath + ').');
   }
 
   const fileType = path.extname(file).replace('.', '');
