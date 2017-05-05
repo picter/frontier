@@ -42,3 +42,5 @@ app.use(async ctx => {
 });
 
 app.listen(3141);
+
+console.log('@picter/pages running at http://127.0.0.1:3141');
