@@ -35,7 +35,7 @@ export const renderFile = (baseDirectory, file) => {
 export const renderPage = baseDirectory => {
   const allFiles = fs.readdirSync(baseDirectory);
 
-  const ignoreFiles = ['assets', 'index.ini', 'theme.sass'];
+  const ignoreFiles = ['assets', 'styles', 'index.ini', 'theme.sass'];
   const indexFile = path.join(baseDirectory, 'index.ini');
   const themeFile = path.join(baseDirectory, 'theme.sass');
 

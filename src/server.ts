@@ -22,7 +22,7 @@ app.use(async ctx => {
   if (url.endsWith('styles.css')) {
     ctx.type = 'text/css';
     ctx.body = sass.renderSync({
-      file: './src/styles.sass',
+      file: url.replace('.css', '/index.sass'),
     }).css;
   } else if (url.includes('assets')) {
     await send(ctx, url);
