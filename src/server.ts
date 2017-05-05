@@ -18,6 +18,7 @@ app.use(async ctx => {
   if (url.charAt(0) === '/') {
     url = url.substring(1);
   }
+  url = 'source/' + url;
   if (url.endsWith('styles.css')) {
     ctx.type = 'text/css';
     ctx.body = sass.renderSync({
