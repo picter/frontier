@@ -1,11 +1,5 @@
 #!/usr/bin/env node
 
-var path = require('path');
-
 process.title = 'pages';
 
-require('ts-node').register({
-  'project': path.resolve(__dirname, '..'),
-});
-
-require('../src/server');
+require('../dist/server');
