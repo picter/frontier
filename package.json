@@ -29,6 +29,7 @@
     "livereload": "^0.6.2",
     "node-sass": "^4.5.2",
     "ts-node": "^3.0.2",
+    "typescript": "^2.2.2",
     "winston": "^2.3.1"
   },
   "devDependencies": {
@@ -36,7 +37,6 @@
     "nodemon": "^1.11.0",
     "sass-lint": "^1.10.2",
     "tslint": "^5.1.0",
-    "tslint-config-airbnb": "^1.1.1",
-    "typescript": "^2.2.2"
+    "tslint-config-airbnb": "^1.1.1"
   }
 }
