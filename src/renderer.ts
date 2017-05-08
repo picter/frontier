@@ -59,9 +59,11 @@ export const renderPage = baseDirectory => {
 
   const indexFileContent = ini.parse(fs.readFileSync(indexFile, 'utf-8'));
 
-  const indexContent = Object.assign({}, {
-    content: new handlebars.SafeString(content),
-  }, indexFileContent);
+  const indexContent = Object.assign(
+    {},
+    { content: new handlebars.SafeString(content) },
+    indexFileContent,
+  );
 
   return postprocess(renderJsonFile('index', indexContent));
 };
