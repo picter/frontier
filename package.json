@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint --project tslint.json",
     "build": "tsc",
+    "prepublish": "npm run build",
     "server:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
   },
   "repository": "git@git.picter.com:picter/pages.git",
