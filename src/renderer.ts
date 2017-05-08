@@ -43,6 +43,8 @@ export const renderPage = baseDirectory => {
     file => !ignoreFiles.includes(file),
   ).filter( // do not render directories
     file => fs.statSync(path.join(baseDirectory, file)).isFile(),
+  ).filter( // ignore files starting with dot
+    file => !file.startsWith('.'),
   );
   winston.debug('Files:', files);
   winston.debug('Has index file:', fs.existsSync(indexFile));
