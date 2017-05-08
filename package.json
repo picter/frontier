@@ -1,6 +1,6 @@
 {
   "name": "@picter/pages",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Static website generator for picter.",
   "main": "src/index.ts",
   "bin": {
