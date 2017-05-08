@@ -42,10 +42,7 @@ export const renderPage = baseDirectory => {
   const files = allFiles.filter(
     file => !ignoreFiles.includes(file),
   ).filter( // do not render directories
-    file => {
-      const filePath = path.join(baseDirectory, file);
-      return fs.statSync(filePath).isFile();
-    },
+    file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   );
   winston.debug('Files:', files);
   winston.debug('Has index file:', fs.existsSync(indexFile));
