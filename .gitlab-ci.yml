@@ -12,34 +12,8 @@ before_script:
 
 stages:
   - lint
-  - review
-  - deploy
 
 lint:
   stage: lint
   script:
     - npm run lint
-
-review:
-  stage: review
-  script:
-    - npm run build
-    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/${CI_BUILD_REF_NAME}/" --acl public-read --recursive --region eu-west-1
-  environment:
-    name: Review/$CI_BUILD_REF_NAME
-    url: http://pages.staging.picter.io/$CI_BUILD_REF_NAME
-  only:
-    - branches
-  except:
-    - master
-
-deploy-staging:
-  stage: deploy
-  script:
-    - npm run build
-    - aws s3 cp "./dist/" "s3://pages.staging.picter.io/" --acl public-read --recursive --region eu-west-1
-  environment:
-    name: Staging
-    url: http://pages.staging.picter.io/
-  only:
-    - master
