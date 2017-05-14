@@ -1743,7 +1743,7 @@ lru-cache@^4.0.0, lru-cache@^4.0.1:
     pseudomap "^1.0.1"
     yallist "^2.0.0"
 
-ltx@^2.3.0:
+ltx@^2.3.0, ltx@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/ltx/-/ltx-2.7.1.tgz#0e5cbdcb5bf178cfa7831ea41dc323d97422315a"
   dependencies:
