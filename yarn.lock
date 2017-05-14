@@ -1122,13 +1122,6 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-handlebars-helper-svg@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/handlebars-helper-svg/-/handlebars-helper-svg-2.0.1.tgz#b6165f083b5878ccb007e11735c8884b177d6a0b"
-  dependencies:
-    ltx "^2.3.0"
-    resolve "^1.1.7"
-
 handlebars@^4.0.6:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.8.tgz#22b875cd3f0e6cbea30314f144e82bc7a72ff420"
@@ -1743,7 +1736,7 @@ lru-cache@^4.0.0, lru-cache@^4.0.1:
     pseudomap "^1.0.1"
     yallist "^2.0.0"
 
-ltx@^2.3.0, ltx@^2.7.1:
+ltx@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/ltx/-/ltx-2.7.1.tgz#0e5cbdcb5bf178cfa7831ea41dc323d97422315a"
   dependencies:
