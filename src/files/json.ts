@@ -2,6 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as handlebars from 'handlebars';
 
+import svg from '../helpers/svg';
+
+handlebars.registerHelper('svg', svg);
+
 const cwd = process.cwd();
 
 export const renderJsonFile = (template, content) => {
