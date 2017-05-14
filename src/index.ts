@@ -1,6 +1,11 @@
 import * as winston from 'winston';
 import * as process from 'process';
+import * as program from 'commander';
+
+const packageJson = require('../package.json');
 
 winston.level = 'debug';
 
-winston.debug(process.argv);
+program
+  .version(packageJson.version)
+  .parse(process.argv);
