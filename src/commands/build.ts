@@ -1,6 +1,6 @@
 import * as process from 'process';
-import * as program from 'commander';
 import * as path from 'path';
+import * as program from 'commander';
 
 import { renderPage } from '../renderer';
 
