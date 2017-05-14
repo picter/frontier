@@ -17,6 +17,7 @@
   "author": "Richard <hello@noxan.net>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^2.9.0",
     "handlebars": "^4.0.6",
     "ini": "^1.3.4",
     "koa": "^2.2.0",
