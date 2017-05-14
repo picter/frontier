@@ -9,5 +9,5 @@ winston.level = 'debug';
 program
   .version(packageJson.version)
   .command('build', 'Builds your page and places result in output path.')
-  .command('serve', 'Builds and serves your page with live reload.')
+  .command('serve', 'Builds and serves your page with live reload.', { isDefault: true })
   .parse(process.argv);
