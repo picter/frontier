@@ -13,7 +13,7 @@ program
   .usage('[options] <path>')
   .parse(process.argv);
 
-const directoryParam = program.args[0] || '.';
+const directoryParam = program.args[0] || 'source';
 const baseDirectory = path.join(cwd, directoryParam);
 
 console.log(renderPage(baseDirectory));
