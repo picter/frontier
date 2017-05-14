@@ -1,7 +1,7 @@
 image: noxan/docker-node-awscli-yarn
 
 cache:
-  key: 'app-curators'
+  key: 'pages'
   paths:
     - node_modules/
 
