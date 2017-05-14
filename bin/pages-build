@@ -2,4 +2,4 @@
 
 process.title = 'pages';
 
-require('../dist/index');
+require('../dist/commands/build');

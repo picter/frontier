@@ -1,18 +1,13 @@
-import * as path from 'path';
-import * as process from 'process';
 import * as winston from 'winston';
+import * as process from 'process';
+import * as program from 'commander';
 
-import { renderPage } from './renderer';
+const packageJson = require('../package.json');
 
 winston.level = 'debug';
 
-const cwd = process.cwd();
-
-if (process.argv.length < 3) {
-  throw new Error('Please provide an base directory as parameter.');
-}
-
-const directoryParam = process.argv[2];
-const baseDirectory = path.join(cwd, directoryParam);
-
-console.log(renderPage(baseDirectory));
+program
+  .version(packageJson.version)
+  .command('build', 'Builds your page and places result in output path.')
+  .command('serve', 'Builds and serves your page with live reload.', { isDefault: true })
+  .parse(process.argv);
