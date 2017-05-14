@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as process from 'process';
 
-import { renderPage } from '../renderer';
+import { renderPage } from './renderer';
 
 const cwd = process.cwd();
 
