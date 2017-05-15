@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as handlebars from 'handlebars';
 import * as ini from 'ini';
 import * as mkdirp from 'mkdirp';
+import * as ncp from 'ncp';
 import * as path from 'path';
 import * as winston from 'winston';
 
@@ -95,6 +96,10 @@ export const renderPage = async (baseDirectory, opts = defaultOpts) => {
   if (opts.styles) {
     const css = await renderStylesheet(path.join(baseDirectory, 'styles/index.sass'));
     fs.writeFileSync(path.join(distDirectory, 'styles.css'), css, 'utf-8');
+  }
+
+  if (opts.assets) {
+    ncp(path.join(baseDirectory, 'assets'), path.join(distDirectory, 'assets'));
   }
 
   return result;
