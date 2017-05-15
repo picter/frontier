@@ -80,5 +80,12 @@ export const renderPage = (baseDirectory, recursive = false) => {
     indexFileContent,
   );
 
-  return postprocess(renderJsonFile('index', indexContent));
+  const distDirectory = baseDirectory.replace('source', 'dist');
+  const distFile = path.join(distDirectory, 'index.html');
+
+  const result = postprocess(renderJsonFile('index', indexContent));
+
+  fs.writeFileSync(distFile, result, 'utf-8');
+
+  return result;
 };
