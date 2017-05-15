@@ -53,7 +53,7 @@ export const renderPage = async (baseDirectory, opts = { recursive: false, style
       file => path.join(baseDirectory, file),
     ).filter(
       filePath => fs.statSync(filePath).isDirectory(),
-    ).forEach(filePath => renderPage(filePath, opts));
+    ).forEach(async filePath => await renderPage(filePath, opts));
   }
 
   const files = filteredFiles.filter( // do not render directories
