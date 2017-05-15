@@ -33,7 +33,7 @@ export const renderFile = (baseDirectory, file) => {
   }
 };
 
-export const renderPage = (baseDirectory, recursive = false) => {
+export const renderPage = (baseDirectory, opts = { recursive: false }) => {
   const allFiles = fs.readdirSync(baseDirectory);
 
   const ignoreFiles = ['assets', 'styles', 'index.ini', 'theme.sass'];
@@ -47,12 +47,12 @@ export const renderPage = (baseDirectory, recursive = false) => {
   );
 
   // recursive rendering
-  if (recursive) {
+  if (opts.recursive) {
     filteredFiles.map(
       file => path.join(baseDirectory, file),
     ).filter(
       filePath => fs.statSync(filePath).isDirectory(),
-    ).forEach(filePath => renderPage(filePath, recursive));
+    ).forEach(filePath => renderPage(filePath, opts));
   }
 
   const files = filteredFiles.filter( // do not render directories
