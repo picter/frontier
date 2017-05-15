@@ -39,12 +39,13 @@ export const renderPage = (baseDirectory, recursive = false) => {
   const indexFile = path.join(baseDirectory, 'index.ini');
   const themeFile = path.join(baseDirectory, 'theme.sass');
 
-  const files = allFiles.filter(
+  const filteredFiles =  allFiles.filter(
     file => !ignoreFiles.includes(file),
-  ).filter( // do not render directories
-    file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   ).filter( // ignore files starting with dot
     file => !file.startsWith('.'),
+  );
+  const files = filteredFiles.filter( // do not render directories
+    file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   );
   winston.debug('Files:', files);
   winston.debug('Has index file:', fs.existsSync(indexFile));
