@@ -1,6 +1,12 @@
+import * as autoprefixer from 'autoprefixer';
+import * as postcss from 'postcss';
 import * as sass from 'node-sass';
 
-export const renderStylesheet = (fileName) =>
-  sass.renderSync({
-    file: fileName,
-  }).css;
+const prefixer = postcss([autoprefixer]);
+
+export const renderStylesheet = async fileName =>
+  await prefixer.process(
+    sass.renderSync({
+      file: fileName,
+    }).css.toString(),
+  ).css;

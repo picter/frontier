@@ -21,7 +21,7 @@ app.use(async ctx => {
   url = 'source/' + url;
   if (url.endsWith('styles.css')) {
     ctx.type = 'text/css';
-    ctx.body = renderStylesheet(url.replace('.css', '/index.sass'));
+    ctx.body = await renderStylesheet(url.replace('.css', '/index.sass'));
   } else if (url.includes('assets')) {
     await send(ctx, url);
   } else if (!url.endsWith('/')) {
