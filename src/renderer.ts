@@ -44,6 +44,16 @@ export const renderPage = (baseDirectory, recursive = false) => {
   ).filter( // ignore files starting with dot
     file => !file.startsWith('.'),
   );
+
+  // recursive rendering
+  if (recursive) {
+    filteredFiles.map(
+      file => path.join(baseDirectory, file),
+    ).filter(
+      filePath => fs.statSync(filePath).isDirectory(),
+    ).forEach(filePath => renderPage(filePath, recursive));
+  }
+
   const files = filteredFiles.filter( // do not render directories
     file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   );
