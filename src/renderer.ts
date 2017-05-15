@@ -32,7 +32,7 @@ export const renderFile = (baseDirectory, file) => {
   }
 };
 
-export const renderPage = baseDirectory => {
+export const renderPage = (baseDirectory, recursive = false) => {
   const allFiles = fs.readdirSync(baseDirectory);
 
   const ignoreFiles = ['assets', 'styles', 'index.ini', 'theme.sass'];
