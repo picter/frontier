@@ -34,7 +34,7 @@ export const renderFile = (baseDirectory, file) => {
   }
 };
 
-const defaultOpts = { recursive: false, styles: false };
+const defaultOpts = { recursive: false, styles: false, assets: false };
 
 export const renderPage = async (baseDirectory, opts = defaultOpts) => {
   const allFiles = fs.readdirSync(baseDirectory);
