@@ -16,4 +16,4 @@ program
 const directoryParam = program.args[0] || 'source';
 const baseDirectory = path.join(cwd, directoryParam);
 
-console.log(renderPage(baseDirectory));
+console.log(renderPage(baseDirectory, true));
