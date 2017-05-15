@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as handlebars from 'handlebars';
 import * as ini from 'ini';
+import * as mkdirp from 'mkdirp';
+import * as ncp from 'ncp';
 import * as path from 'path';
 import * as winston from 'winston';
 
@@ -8,6 +10,7 @@ import json, { renderJsonFile } from './files/json';
 import markdown from './files/markdown';
 import templates from './templates';
 import postprocess from './postprocess';
+import { renderStylesheet } from './styles';
 
 export const renderFile = (baseDirectory, file) => {
   const filePath = path.join(baseDirectory, file);
@@ -32,19 +35,32 @@ export const renderFile = (baseDirectory, file) => {
   }
 };
 
-export const renderPage = baseDirectory => {
+const defaultOpts = { recursive: false, styles: false, assets: false };
+
+export const renderPage = async (baseDirectory, opts = defaultOpts) => {
   const allFiles = fs.readdirSync(baseDirectory);
 
   const ignoreFiles = ['assets', 'styles', 'index.ini', 'theme.sass'];
   const indexFile = path.join(baseDirectory, 'index.ini');
   const themeFile = path.join(baseDirectory, 'theme.sass');
 
-  const files = allFiles.filter(
+  const filteredFiles =  allFiles.filter(
     file => !ignoreFiles.includes(file),
-  ).filter( // do not render directories
-    file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   ).filter( // ignore files starting with dot
     file => !file.startsWith('.'),
+  );
+
+  // recursive rendering
+  if (opts.recursive) {
+    filteredFiles.map(
+      file => path.join(baseDirectory, file),
+    ).filter(
+      filePath => fs.statSync(filePath).isDirectory(),
+    ).forEach(async filePath => await renderPage(filePath, opts));
+  }
+
+  const files = filteredFiles.filter( // do not render directories
+    file => fs.statSync(path.join(baseDirectory, file)).isFile(),
   );
   winston.debug('Files:', files);
   winston.debug('Has index file:', fs.existsSync(indexFile));
@@ -69,5 +85,22 @@ export const renderPage = baseDirectory => {
     indexFileContent,
   );
 
-  return postprocess(renderJsonFile('index', indexContent));
+  const distDirectory = baseDirectory.replace('source', 'dist');
+  const distFile = path.join(distDirectory, 'index.html');
+
+  const result = postprocess(renderJsonFile('index', indexContent));
+
+  mkdirp.sync(distDirectory);
+  fs.writeFileSync(distFile, result, 'utf-8');
+
+  if (opts.styles) {
+    const css = await renderStylesheet(path.join(baseDirectory, 'styles/index.sass'));
+    fs.writeFileSync(path.join(distDirectory, 'styles.css'), css, 'utf-8');
+  }
+
+  if (opts.assets) {
+    ncp(path.join(baseDirectory, 'assets'), path.join(distDirectory, 'assets'));
+  }
+
+  return result;
 };
