@@ -9,6 +9,7 @@ import json, { renderJsonFile } from './files/json';
 import markdown from './files/markdown';
 import templates from './templates';
 import postprocess from './postprocess';
+import { renderStylesheet } from './styles';
 
 export const renderFile = (baseDirectory, file) => {
   const filePath = path.join(baseDirectory, file);
@@ -33,7 +34,7 @@ export const renderFile = (baseDirectory, file) => {
   }
 };
 
-export const renderPage = (baseDirectory, opts = { recursive: false }) => {
+export const renderPage = async (baseDirectory, opts = { recursive: false, styles: false }) => {
   const allFiles = fs.readdirSync(baseDirectory);
 
   const ignoreFiles = ['assets', 'styles', 'index.ini', 'theme.sass'];
@@ -88,6 +89,11 @@ export const renderPage = (baseDirectory, opts = { recursive: false }) => {
 
   mkdirp.sync(distDirectory);
   fs.writeFileSync(distFile, result, 'utf-8');
+
+  if (opts.styles) {
+    const css = await renderStylesheet(path.join(baseDirectory, 'styles/index.sass'));
+    fs.writeFileSync(path.join(distDirectory, 'styles.css'), css, 'utf-8');
+  }
 
   return result;
 };

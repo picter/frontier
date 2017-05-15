@@ -16,4 +16,4 @@ program
 const directoryParam = program.args[0] || 'source';
 const baseDirectory = path.join(cwd, directoryParam);
 
-renderPage(baseDirectory, { recursive: true });
+renderPage(baseDirectory, { recursive: true, styles: true });
