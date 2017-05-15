@@ -1,10 +1,10 @@
 import * as Application from 'koa';
 import * as livereload from 'livereload';
 import * as path from 'path';
-import * as sass from 'node-sass';
 import * as send from 'koa-send';
 
 import { renderPage } from './renderer';
+import { renderStylesheet } from './styles';
 
 const lrserver = livereload.createServer({
   exts: ['json', 'md', 'sass', 'ini', 'hbs'],
@@ -21,9 +21,7 @@ app.use(async ctx => {
   url = 'source/' + url;
   if (url.endsWith('styles.css')) {
     ctx.type = 'text/css';
-    ctx.body = sass.renderSync({
-      file: url.replace('.css', '/index.sass'),
-    }).css;
+    ctx.body = await renderStylesheet(url.replace('.css', '/index.sass'));
   } else if (url.includes('assets')) {
     await send(ctx, url);
   } else if (!url.endsWith('/')) {
