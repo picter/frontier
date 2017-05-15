@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as handlebars from 'handlebars';
 import * as ini from 'ini';
+import * as mkdirp from 'mkdirp';
 import * as path from 'path';
 import * as winston from 'winston';
 
@@ -85,6 +86,7 @@ export const renderPage = (baseDirectory, recursive = false) => {
 
   const result = postprocess(renderJsonFile('index', indexContent));
 
+  mkdirp.sync(distDirectory);
   fs.writeFileSync(distFile, result, 'utf-8');
 
   return result;
