@@ -1,4 +1,4 @@
 import * as kramed from 'kramed';
 
 export default fileContent =>
-  `<div class="container">${kramed(fileContent)}</div>`;
+  `<div class="container markdown">${kramed(fileContent)}</div>`;
