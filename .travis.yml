@@ -5,5 +5,8 @@ sudo: false
 node_js:
   - "8"
 
+cache:
+  yarn: true
+
 script:
   - npm run lint
