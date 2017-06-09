@@ -1,7 +1,7 @@
 {
   "name": "@picter/pages",
   "version": "0.8.1",
-  "description": "Static website generator for picter.",
+  "description": "Template based static website generator with features for dynamic content during generation and post processing.",
   "main": "src/index.ts",
   "bin": {
     "pages": "./bin/pages"
