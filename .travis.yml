@@ -7,6 +7,8 @@ node_js:
 
 cache:
   yarn: true
+  directories:
+    - node_modules
 
 script:
   - npm run lint
